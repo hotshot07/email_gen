@@ -42,8 +42,8 @@ def _get_replacement(type_of_match):
         random_adjective = shuffled_list[idx]
         return random_adjective
 
-    elif type_of_match == 'comapny':
-        # make user provide it 
+    elif type_of_match == 'company':
+        # make user provide it in next version
         return COMPANY
 
     else:
@@ -56,7 +56,7 @@ def _get_replacement(type_of_match):
         return random_terminal
 
 
-def _getWord(data):
+def _getWords(data):
     regex = r"""\{[-_a-z]+?\}"""
     matches = re.finditer(regex, data, re.IGNORECASE | re.VERBOSE)
     match_list = [i.group() for i in matches]
@@ -81,6 +81,23 @@ def getName():
     return f'{shuffled_first[idx_first]} {shuffled_last[idx_last]}'
 
 
-def 
+def getParagraph():
+    paragraph = []
+
+    lead_idx = random.randint(0, len(wordlist.paragraph_lead_formats) - 1)
+    paragraph_lead = _getWords(wordlist.paragraph_lead_formats[lead_idx])
+    paragraph.append(paragraph_lead)
+
+    number_of_sentences = random.randint(2, 4)
+
+    for i in range(number_of_sentences - 1):
+        rand_idx = random.randint(0, len(wordlist.paragraph_mid_a_formats) - 1)
+        paragraph.append(_getWords(wordlist.paragraph_mid_a_formats[rand_idx]))
+
+    ending_rand_idx = random.randint(0, len(wordlist.paragraph_mid_b_formats) - 1)
+    paragraph.append(_getWords(wordlist.paragraph_mid_b_formats[ending_rand_idx]))
+
+    return paragraph
 
 
+print(*getParagraph())
