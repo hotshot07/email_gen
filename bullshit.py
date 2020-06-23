@@ -88,7 +88,7 @@ def getParagraph():
     paragraph_lead = _getWords(wordlist.paragraph_lead_formats[lead_idx])
     paragraph.append(paragraph_lead)
 
-    number_of_sentences = random.randint(2, 4)
+    number_of_sentences = random.randint(3, 5)
 
     for i in range(number_of_sentences - 1):
         rand_idx = random.randint(0, len(wordlist.paragraph_mid_a_formats) - 1)
@@ -114,4 +114,9 @@ def getQuote():
     return quote
 
 
-print(*getQuote())
+def getSentence():
+    shuffled_sentence_list = _shuffleArray(wordlist.sentence_formats)
+
+    rand_sentence_idx = random.randint(0, len(wordlist.sentence_formats) - 1)
+
+    return f'{_getWords(shuffled_sentence_list[rand_sentence_idx])}'
