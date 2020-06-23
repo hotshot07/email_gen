@@ -66,7 +66,7 @@ def _getWords(data):
         replacement_list.append(_get_replacement(type_of_match))
 
     for i in range(len(match_list)):
-        data = data.replace(str(match_list[i]), replacement_list[i])
+        data = data.replace(str(match_list[i]), replacement_list[i], 1)
 
     return data
 
@@ -100,4 +100,18 @@ def getParagraph():
     return paragraph
 
 
-print(*getParagraph())
+def getQuote():
+    shuffled_quote_intro = _shuffleArray(wordlist.quote_intro_formats)
+    shuffled_quote_ending = _shuffleArray(wordlist.quote_ending_formats)
+
+    rand_quote_intro_idx = random.randint(0, len(wordlist.quote_intro_formats) - 1)
+    rand_quote_ending_idx = random.randint(0, len(wordlist.quote_ending_formats) - 1)
+
+    quote = []
+    quote.append(_getWords(wordlist.quote_intro_formats[rand_quote_intro_idx]))
+    quote.append(_getWords(wordlist.quote_ending_formats[rand_quote_ending_idx]))
+
+    return quote
+
+
+print(*getQuote())
