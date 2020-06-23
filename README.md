@@ -7,5 +7,5 @@ $python3 bullshit.py
 ```
 example
 
-[img](img.PNG)
+![img](img.png)
 
