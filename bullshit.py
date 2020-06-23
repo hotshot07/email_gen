@@ -97,7 +97,7 @@ def getParagraph():
     ending_rand_idx = random.randint(0, len(wordlist.paragraph_mid_b_formats) - 1)
     paragraph.append(_getWords(wordlist.paragraph_mid_b_formats[ending_rand_idx]))
 
-    return paragraph
+    return ' '.join(paragraph)
 
 
 def getQuote():
@@ -111,7 +111,7 @@ def getQuote():
     quote.append(_getWords(wordlist.quote_intro_formats[rand_quote_intro_idx]))
     quote.append(_getWords(wordlist.quote_ending_formats[rand_quote_ending_idx]))
 
-    return quote
+    return ' '.join(quote)
 
 
 def getSentence():
@@ -120,3 +120,18 @@ def getSentence():
     rand_sentence_idx = random.randint(0, len(wordlist.sentence_formats) - 1)
 
     return f'{_getWords(shuffled_sentence_list[rand_sentence_idx])}'
+
+
+# let's make it generate an email now
+
+
+if __name__ == '__main__':
+    print(f"Hi! I'm {getName()} from {COMPANY}")
+    print()
+    print(f"{getQuote()}")
+    print()
+    print(f"{getParagraph()}")
+    print()
+    print(f"{getSentence()} {getSentence()}")
+    print()
+    print("Thanks!")
