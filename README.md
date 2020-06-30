@@ -17,5 +17,5 @@ You can modify the `if __name__ == "__main__"` function as per your needs
 
 example
 
-[img](img.PNG)
+![img](img.png)
 
